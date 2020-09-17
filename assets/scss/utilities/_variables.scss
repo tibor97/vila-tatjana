@@ -1,0 +1,27 @@
+// Colors
+$background-color: #dedede; //bg for about section and contact
+$silver: silver;
+$grey: #848789; // paragraf for about section, and contact section an footer, hover of an list item
+$light-grey: #f7f7f7; // for background of navbar and fixed header on mobile
+
+$white: #fff;
+$black: #000;
+
+// Breakpoints
+$min-extra-large-desktop: 2559px;
+$max-tablet: 1024px;
+$max-mobile: 767px;
+
+// Fonts
+//$font-family-primary: 'Fredericka the Great', cursive;
+$font-family-primary: 'Lobster', cursive;
+$font-family-secondary: 'Lobster Two', cursive;
+$font-family-paragraf: 'Comfortaa', cursive;
+
+// Font weight
+$font-weight-regular: 400;
+
+// transitions
+$transition-base: 0.4s ease;
+$transition-slow: 1.5s ease;
+$transition-fast: 0.2s ease;

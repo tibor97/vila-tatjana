@@ -1,0 +1,113 @@
+.contact-section {
+	//background-color: $light-grey;
+	background-image: linear-gradient($white, $background-color);
+	padding-bottom: 115px;
+
+	@include max-mq($max-mobile) {
+		padding: 40px 0;
+	}
+}
+
+.contact-section-content-wrapper {
+	text-align: center;
+	border-bottom: 3px dotted $grey;
+	padding-top: 115px;
+
+	@include max-mq($max-mobile) {
+	    padding-top: 60px;
+	}
+
+	p {
+		color: $grey;
+		font-size: 25px;
+	    line-height: 33px;
+	    padding-bottom: 60px;
+
+	    @include max-mq($max-mobile) {
+	    	font-size: 20px;
+    		line-height: 26px;
+    		padding-bottom: 40px;
+	    }
+	}
+}
+
+.tel-mail-wrapper {
+	a {
+		font-size: 22px;
+		margin: 0 40px;
+		color: $grey;
+		transition: $transition-base;
+
+		@include max-mq($max-mobile) {
+			margin: 20px 0;
+			display: block;
+			font-size: 20px;
+		}
+
+		.icon {
+			color: $grey;
+		}
+
+		&:hover {
+			color: $black;
+
+			.icon {
+				color: $black;
+			}
+		}
+	}
+	
+	.icon {
+		@include max-mq(405px) {
+			display: none;
+		}
+	}
+
+	.phone-translate {
+		display: inline-block;
+		transform: translate(0, -2px);
+	}
+
+	.email-translate {
+		display: inline-block;
+		transform: translate(0, -4px);
+		font-size: 18px;
+	}
+}
+
+.icon-wrapper {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding-top: 50px;
+
+    @include max-mq($max-mobile) {
+    	padding-bottom: 40px;
+	}
+}
+
+.icon {
+	padding: 10px;
+	color: $black;
+	transition: $transition-base;
+
+	&:hover {
+		color: $grey;
+	}
+}
+
+.map {
+	width: 100%;
+}
+
+.animation-element {
+	opacity: 0;
+	transform: scale(0);
+
+	&.in-view {
+		opacity: 1;
+		transform: scale(1);
+	  	transition: $transition-slow;
+	}
+}

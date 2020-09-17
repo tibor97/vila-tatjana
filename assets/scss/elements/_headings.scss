@@ -1,0 +1,41 @@
+h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    opacity: 0;
+    display: inline-block;
+    position: relative;
+    color: $silver;
+    text-shadow: 8px 8px 20px $black;
+                
+    @include max-mq (620px) {
+        font-size: 40px;
+    }
+}
+
+h2 {
+	font-size: 28px;
+    margin: 24px 0;
+    letter-spacing: 2.5px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    color: $black;
+}
+
+h1, h2, .header-logo {
+    &::before,
+    &::after {
+        content: "~";
+        position: absolute;
+    }
+
+    &:before {
+        top: 34%;
+        left: -14%;
+    }
+
+    &:after {
+        top: 34%;
+        right: -14%;
+    }
+}

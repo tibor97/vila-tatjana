@@ -1,0 +1,42 @@
+footer {
+	background-color: $white;
+	padding: 30px 0;
+
+	@include max-mq($max-mobile) {
+		padding: 23px 0 11px;
+	}
+}
+
+.footer-section-content-wrapper {
+	text-align: center;
+
+	p {
+		font-size: 14px;
+	    line-height: 33px;
+	    color: $grey;
+	    
+	    @include max-mq($max-mobile) {
+	    	padding-left: 0;
+	    	font-size: 16px;
+    		line-height: 26px;
+	    }
+
+	    &:nth-child(2) {
+	    	font-size: 12px;
+	    }
+	}
+
+	a {
+		color: $silver;
+		transition: $transition-base;
+
+		&:hover {
+			color: $grey;
+		}
+	}
+}
+
+sup {
+	vertical-align: super;
+    font-size: small;
+} 

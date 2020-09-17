@@ -1,0 +1,192 @@
+section {
+    padding: 1em;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0;
+}
+
+.gallery-item {
+    width: 15.66%;
+    margin: 0.5%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+    @include max-mq($max-tablet) {
+        width: 32.33%;
+    }
+
+    @include max-mq($max-mobile) {
+        width: 97%;
+        margin: 3% 1.5%;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    .thumb {
+        //image-rendering: crisp-edges;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        //object-fit: cover;
+        transition: transform 500ms;
+
+        .ie-fix & {
+            width: auto;
+        }
+    }
+
+    &:hover {
+        .thumb {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.lightbox-wrapper {
+    display: none;
+    background-color: rgba($black, 0.9);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.lightbox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: $white;
+
+    .lightbox-header {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+        font-weight: 600;
+        text-align: center;
+
+        & > * {
+            opacity: 0.75;
+        }
+    }
+
+    .lightbox-close {
+        position: relative;
+        height: 1.85rem;
+        width: 1.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        padding: 0;
+        border: none;
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            height: 4px;
+            width: 80%;
+            background-color: #fff;
+        }
+
+        &::before {
+            transform: rotate(-45deg);
+        }
+
+        &::after {
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .lightbox-slides-wrapper {
+        flex-grow: 1;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .lightbox-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        transition: all 0ms ease;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        &[data-state="prev"] {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        &[data-state="next"] {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+
+    .lightbox-image {
+        display: none;
+        max-width: 100%;
+        max-height: 100%;
+        border: 7px solid $white;
+    }
+
+    .lightbox-arrow {
+        position: absolute;
+        top: 50%;
+        width: 4rem;
+        height: 4rem;
+        padding: 0.5rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1.5em;
+        opacity: 0.75;
+        cursor: pointer;
+        filter: drop-shadow(0 0 7px $black);
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.arrow-left {
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='53' viewBox='0 0 32 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 26.5L27.3171 0L32 4.54286L9.36585 26.5L32 48.4571L27.3171 53L0 26.5Z' fill='white'/%3E%3C/svg%3E");
+        }
+
+        &.arrow-right {
+            right: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='53' viewBox='0 0 32 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 26.5L4.68293 53L0 48.4571L22.6341 26.5L3.83911e-06 4.54286L4.68293 0L32 26.5Z' fill='white'/%3E%3C/svg%3E");
+        }
+    }
+}
+
+.tumb-object {
+    object-fit: fill;
+}
+
+.tumb-object-all {
+    object-fit: cover;
+}

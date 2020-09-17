@@ -1,0 +1,25 @@
+.about-section {
+	background-image: linear-gradient($background-color, $white);
+}
+
+.about-section-content-wrapper {
+	text-align: center;
+	padding: 115px 0;
+
+	@include max-mq($max-mobile) {
+		padding: 40px 0 11px;
+	}
+
+	p {
+		font-size: 18px;
+	    line-height: 33px;
+	    color: $grey;
+	    padding-bottom: 20px;
+
+	    @include max-mq($max-mobile) {
+	    	padding-left: 0;
+	    	font-size: 16px;
+    		line-height: 26px;
+	    }
+	}
+}

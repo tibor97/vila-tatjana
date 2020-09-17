@@ -1,0 +1,123 @@
+header {
+	position: relative;
+	z-index: 99;
+}
+
+.navbar {
+	width: 100%;
+	position: fixed;
+	opacity: 0;
+	filter: drop-shadow(2.5px 4.33px 7px rgba($black, 0.18));
+}
+
+.navbar-list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+
+	@include max-mq($max-mobile) {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 70px;
+		width: 100%;
+		text-align: center;
+		background-color: $light-grey;
+		height: 100vh;
+		transform: translateX(100%);
+
+		&.active {
+			transform: translateX(0);
+
+			.navbar-list-item-1 {
+				animation-name: navLinksFade;
+  				animation-duration: 0.5s;
+			}
+
+			.navbar-list-item-2 {
+				animation-name: navLinksFade;
+  				animation-duration: 1s;
+			}
+
+			.navbar-list-item-3 {
+				animation-name: navLinksFade;
+  				animation-duration: 1.5s;
+			}
+
+			.navbar-list-item-4 {
+				animation-name: navLinksFade;
+  				animation-duration: 2s;
+			}
+		}
+
+		&.activated {
+			transition: transform $transition-slow;
+		}
+	}
+}
+
+.navbar-list-item-link {
+	color: $black;
+	padding: 20px 35px;
+	display: inline-block;
+	transition: color $transition-base;
+	font-weight: bold;
+
+	@include max-mq($max-mobile) {
+	    padding: 14px 35px;
+	    font-weight: normal;
+	    width: 100%;
+	    font-size: 18px;
+	    letter-spacing: 3.5px;
+	}
+
+	&:hover {
+		color: $grey;
+	}
+}
+
+.header-logo-wrapper {
+	margin-left: 30px;
+
+	&.header-logo-wrapper-desktop {
+		@include max-mq($max-mobile) {
+			display: none;
+		}
+	}
+}
+	
+.header-logo {
+	font-family: $font-family-primary;
+	font-size: 22px;
+	position: relative;
+	display: inline-block;
+
+	@include max-mq($max-mobile) {
+		font-size: 18px;
+	}
+}
+
+.navbar-mobile-wrapper {
+	display: none;
+
+	@include max-mq ($max-mobile) {
+		width: 100%;
+		display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+	}
+}
+
+@keyframes navLinksFade {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

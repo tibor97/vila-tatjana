@@ -1,0 +1,24 @@
+.main-container {
+	max-width: 1176px;
+	width: 100%;
+	padding: 0 30px;
+	margin: 0 auto;
+
+	@include max-mq($max-mobile) {
+		padding: 0 20px;
+	}
+}
+
+.main-container-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@include max-mq($max-mobile) {
+		padding: 0;
+	}
+}
+
+.highlighted-text {
+	font-weight: bold;
+}
